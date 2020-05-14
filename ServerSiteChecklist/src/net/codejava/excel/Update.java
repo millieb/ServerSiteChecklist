@@ -27,7 +27,18 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class Update{
  
  
-    public void updateExcel() {
+    public void updateExcel(String date, String servers, String temperature, 
+    		String physicalGround, String UPS, String network, String signatures, String comments) {
+    	String dt = date;
+    	String srvs = servers;
+    	String temp = temperature;
+    	String phygrnd = physicalGround;
+    	String ups = physicalGround;
+    	String ntwrk = physicalGround;
+    	String sign = signatures;
+    	String cmnts = comments;
+    	
+    	
         String excelFilePath = "C:\\servercheck\\update.xlsx";
          
         try {
@@ -37,7 +48,7 @@ public class Update{
             Sheet sheet = workbook.getSheetAt(0);
  
             Object[][] bookData = {
-                    {"Testing", "Mildred Brito", 1678},
+                    {dt, srvs, temp, phygrnd, ups, ntwrk, sign, cmnts},
                     
             };
  

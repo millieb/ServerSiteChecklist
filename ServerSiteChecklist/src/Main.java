@@ -70,8 +70,6 @@ public class Main extends Application {
     		}
     		else {
     			goToChecklist();
-    			Update update = new Update();
-    			update.updateExcel();
 			}
     	});
       	
@@ -91,8 +89,9 @@ public class Main extends Application {
     	Label dateLabel = new Label("Date:");
     	GridPane.setConstraints(dateLabel, 0, 0);
     	//Date Input
-    	TextField dateInput = new TextField("mm/dd/yyyy");
+    	TextField dateInput = new TextField();
     	GridPane.setConstraints(dateInput, 1, 0);
+    	dateInput.setPromptText("mm/dd/yyyy");
     	
 		//Servers Label
     	Label serversLabel = new Label("Servers:");
@@ -100,6 +99,13 @@ public class Main extends Application {
     	//Servers Input
     	TextField serversInput = new TextField();
     	GridPane.setConstraints(serversInput, 1, 0);
+    	
+    	//Temperature Label
+    	Label temperatureLabel = new Label("Site Temperature:");
+    	GridPane.setConstraints(temperatureLabel, 0, 0);
+    	//Temperature Input
+    	TextField temperatureInput = new TextField();
+    	GridPane.setConstraints(temperatureInput, 1, 0);
     	
 		//Ground Label
     	Label groundLabel = new Label("Physical Ground:");
@@ -121,17 +127,68 @@ public class Main extends Application {
     	//Network Input
     	TextField networkInput = new TextField();
     	GridPane.setConstraints(networkInput, 1, 0);
+    	
+    	//Signatures Label
+    	Label signaturesLabel = new Label("Signatures:");
+    	GridPane.setConstraints(signaturesLabel, 0, 0);
+    	//Signatures Input
+    	TextField signaturesInput = new TextField();
+    	GridPane.setConstraints(signaturesInput, 1, 0);
+    	
+    	//Comments Label
+    	Label commentsLabel = new Label("Issues or Comments:");
+    	GridPane.setConstraints(commentsLabel, 0, 0);
+    	//Comments Input
+    	TextField commentsInput = new TextField();
+    	GridPane.setConstraints(commentsInput, 1, 0);
 		
-
-		
+    	/**Submit Button that saves all info */
+    	Button submitButton = new Button("Submit");
+    	GridPane.setConstraints(submitButton, 1, 2);
+    	
+    	/** Setting an action for the Submit button */
+    	submitButton.setOnAction( e -> {
+	        if ( (dateInput.getText() != null && !dateInput.getText().isEmpty())
+	        		&& (serversInput.getText() != null && !serversInput.getText().isEmpty())
+	        		&& (temperatureInput.getText() != null && !temperatureInput.getText().isEmpty())
+	        		&& (groundInput.getText() != null && !groundInput.getText().isEmpty()) 
+	        		&& (upsInput.getText() != null && !upsInput.getText().isEmpty())
+	        		&& (networkInput.getText() != null && !networkInput.getText().isEmpty())
+	        		&& (signaturesInput.getText() != null && !signaturesInput.getText().isEmpty())
+	        		&& (commentsInput.getText() != null && !commentsInput.getText().isEmpty()) ) {
+	        	Update update = new Update();
+	        	String date = dateInput.getText();
+	        	String servers = serversInput.getText();
+	        	String temperature = temperatureInput.getText();
+	        	String ground = groundInput.getText();
+	        	String ups = upsInput.getText();
+	        	String network = networkInput.getText();
+	        	String signatures = signaturesInput.getText();
+	        	String comments = commentsInput.getText();
+	        	
+	        	update.updateExcel(date, servers, temperature, ground, ups, network, signatures, comments);
+	        	
+	        } else {
+	        	AlertBox.display("Invalid Entry", "You have not left a comment.");
+	        }     
+    	});
+    	
+    	
     	
 		//Layout Checklist
 		VBox layoutChecklist = new VBox(10);
 		layoutChecklist.setPadding(new Insets(20, 20, 20, 20));
-		layoutChecklist.getChildren().addAll(dateLabel, dateInput, serversLabel, serversInput, groundLabel, groundInput, 
-				upsLabel, upsInput, networkLabel, networkInput);
+		layoutChecklist.getChildren().addAll(dateLabel, dateInput, 
+				serversLabel, serversInput, 
+				temperatureLabel, temperatureInput,
+				groundLabel, groundInput, 
+				upsLabel, upsInput, 
+				networkLabel, networkInput, 
+				signaturesLabel, signaturesInput,
+				commentsLabel, commentsInput,
+				submitButton);
 		
-		Scene scene2 = new Scene(layoutChecklist, 250, 500);
+		Scene scene2 = new Scene(layoutChecklist, 250, 620);
 		window.setScene(scene2);   	
 		
 	}
