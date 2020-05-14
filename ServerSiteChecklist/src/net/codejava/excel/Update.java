@@ -28,7 +28,7 @@ public class Update{
  
  
     public void updateExcel() {
-        String excelFilePath = "D:\\update.xlsx";
+        String excelFilePath = "C:\\servercheck\\update.xlsx";
          
         try {
             FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
@@ -64,7 +64,7 @@ public class Update{
  
             inputStream.close();
  
-            FileOutputStream outputStream = new FileOutputStream("D:\\update.xlsx");
+            FileOutputStream outputStream = new FileOutputStream("C:\\servercheck\\update.xlsx");
             workbook.write(outputStream);
             workbook.close();
             outputStream.close();

@@ -8,7 +8,7 @@ public class isPassword {
 	public boolean isValid(String password) {
 		String pw = password;
 		switch(pw){
-		case "Dataxp0rtMB27+":
+		case "123":
 			System.out.println("Correct password");
 			return true;
 		case "Dataxp0rtDS28+":

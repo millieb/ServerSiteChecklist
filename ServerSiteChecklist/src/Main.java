@@ -79,7 +79,7 @@ public class Main extends Application {
     	grid.getChildren().addAll(nameLabel, nameInput, passLabel, 
     			passInput, loginButton);
     	
-    	Scene scene = new Scene(grid, 300, 400);
+    	Scene scene = new Scene(grid, 300, 200);
     	window.setScene(scene);
     	window.show();
     	
@@ -87,26 +87,51 @@ public class Main extends Application {
 	}
 
 	private void goToChecklist() {
-		//Check boxes
-		CheckBox box1 = new CheckBox("Servers");
-		CheckBox box2 = new CheckBox("Physical Ground");
-		CheckBox box3 = new CheckBox("UPS");
-		CheckBox box4 = new CheckBox("Network Equipment");
-		
 		//Date Label
     	Label dateLabel = new Label("Date:");
     	GridPane.setConstraints(dateLabel, 0, 0);
-    	
     	//Date Input
     	TextField dateInput = new TextField("mm/dd/yyyy");
     	GridPane.setConstraints(dateInput, 1, 0);
+    	
+		//Servers Label
+    	Label serversLabel = new Label("Servers:");
+    	GridPane.setConstraints(serversLabel, 0, 0);
+    	//Servers Input
+    	TextField serversInput = new TextField();
+    	GridPane.setConstraints(serversInput, 1, 0);
+    	
+		//Ground Label
+    	Label groundLabel = new Label("Physical Ground:");
+    	GridPane.setConstraints(groundLabel, 0, 0);
+    	//Ground Input
+    	TextField groundInput = new TextField();
+    	GridPane.setConstraints(groundInput, 1, 0);
+    	
+		//UPS Label
+    	Label upsLabel = new Label("UPS:");
+    	GridPane.setConstraints(upsLabel, 0, 0);
+    	//UPS Input
+    	TextField upsInput = new TextField();
+    	GridPane.setConstraints(upsInput, 1, 0);
+    	
+		//Network Label
+    	Label networkLabel = new Label("Network Equipment:");
+    	GridPane.setConstraints(networkLabel, 0, 0);
+    	//Network Input
+    	TextField networkInput = new TextField();
+    	GridPane.setConstraints(networkInput, 1, 0);
 		
+
+		
+    	
 		//Layout Checklist
 		VBox layoutChecklist = new VBox(10);
 		layoutChecklist.setPadding(new Insets(20, 20, 20, 20));
-		layoutChecklist.getChildren().addAll(box1, box2, box3, box4, dateLabel, dateInput);
+		layoutChecklist.getChildren().addAll(dateLabel, dateInput, serversLabel, serversInput, groundLabel, groundInput, 
+				upsLabel, upsInput, networkLabel, networkInput);
 		
-		Scene scene2 = new Scene(layoutChecklist, 400, 300);
+		Scene scene2 = new Scene(layoutChecklist, 250, 500);
 		window.setScene(scene2);   	
 		
 	}
