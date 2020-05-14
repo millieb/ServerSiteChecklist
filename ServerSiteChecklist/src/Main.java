@@ -48,7 +48,7 @@ public class Main extends Application {
     	GridPane.setConstraints(passLabel, 0, 1);
     	
     	//Password Input
-    	TextField passInput = new TextField("password");
+    	TextField passInput = new TextField("password"); 
     	passInput.setPromptText("password");
     	GridPane.setConstraints(passInput, 1, 1);
     	
@@ -89,9 +89,8 @@ public class Main extends Application {
     	Label dateLabel = new Label("Date:");
     	GridPane.setConstraints(dateLabel, 0, 0);
     	//Date Input
-    	TextField dateInput = new TextField();
+    	TextField dateInput = new TextField("mm/dd/yyyy");
     	GridPane.setConstraints(dateInput, 1, 0);
-    	dateInput.setPromptText("mm/dd/yyyy");
     	
 		//Servers Label
     	Label serversLabel = new Label("Servers:");
@@ -167,7 +166,7 @@ public class Main extends Application {
 	        	String comments = commentsInput.getText();
 	        	
 	        	update.updateExcel(date, servers, temperature, ground, ups, network, signatures, comments);
-	        	
+	        	System.exit(0);
 	        } else {
 	        	AlertBox.display("Invalid Entry", "You have not left a comment.");
 	        }     
