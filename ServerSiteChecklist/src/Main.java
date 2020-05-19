@@ -48,9 +48,12 @@ public class Main extends Application {
     	GridPane.setConstraints(passLabel, 0, 1);
     	
     	//Password Input
-    	TextField passInput = new TextField("password"); 
+    	TextField passInput = new TextField("password");
     	passInput.setPromptText("password");
     	GridPane.setConstraints(passInput, 1, 1);
+    	
+    	/*Follow this example*/
+    	/*https://docs.oracle.com/javafx/2/ui_controls/password-field.htm*/
     	
     	//Login
     	Button loginButton = new Button("Log In");
