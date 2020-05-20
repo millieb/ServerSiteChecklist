@@ -48,8 +48,8 @@ public class Main extends Application {
     	GridPane.setConstraints(passLabel, 0, 1);
     	
     	//Password Input
-    	TextField passInput = new TextField("password");
-    	passInput.setPromptText("password");
+    	PasswordField passInput = new PasswordField();
+    	passInput.setPromptText("Your password");
     	GridPane.setConstraints(passInput, 1, 1);
     	
     	/*Follow this example*/
